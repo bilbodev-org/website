@@ -1,77 +1,77 @@
-# Bilbo Dev Web
+# BilboDev Web
 
-# Nuxt Minimal Starter
+Web de la comunidad BilboDev migrada a [Nuxt](https://nuxt.com/). La app publica la home, el archivo de eventos pasados y la página para proponer charlas usando datos locales generados desde Meetup.
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Requisitos
 
-## Setup
+- Node.js 22
+- npm
 
-Make sure to install dependencies:
+## Instalación
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+## Desarrollo
 
-Start the development server on `http://localhost:3000`:
+Arranca el servidor local en `http://localhost:3000`:
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
-Build the application for production:
+## Scripts
 
 ```bash
-# npm
+npm run dev       # servidor de desarrollo
+npm run build     # build de producción
+npm run generate  # generación estática
+npm run preview   # previsualizar build
+npm run scrape    # actualizar datos desde Meetup
+```
+
+## Estructura
+
+- `app/pages/`: páginas Nuxt (`/`, `/archive`, `/transmission`).
+- `app/components/`: componentes Vue reutilizables.
+- `app/assets/css/`: estilos migrados desde la versión vanilla.
+- `app/data/`: JSON consumidos por la app.
+- `public/`: assets servidos tal cual, como el logo.
+- `scripts/scrape-meetup.mjs`: scraper de Meetup.
+
+## Datos De Meetup
+
+El scraper lee el grupo `bilbo-dev` en Meetup y actualiza:
+
+- `app/data/group-info.json`
+- `app/data/meetup-events.json`
+- `app/data/upcoming-events.json`
+
+Para ejecutarlo manualmente:
+
+```bash
+npm run scrape
+```
+
+## Automatización
+
+El workflow `.github/workflows/daily-meetup-scrape.yml` ejecuta el scraper cada día a las `05:00 UTC` y también puede lanzarse manualmente desde GitHub Actions. Si los JSON cambian, el workflow crea un commit con los datos actualizados.
+
+## Iconos
+
+Los iconos del footer usan [`@nuxt/icon`](https://github.com/nuxt/icon) con nombres de Iconify, por ejemplo `simple-icons:instagram`.
+
+## Producción
+
+Genera el build:
+
+```bash
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+Previsualiza el resultado:
 
 ```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
