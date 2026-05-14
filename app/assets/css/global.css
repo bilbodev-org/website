@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+@import './components/header.css';
+@import './components/footer.css';
+@import './components/hero.css';
+@import './components/speaker-card.css';
+@import './components/community-metrics.css';
+@import './components/events-slider.css';
+@import './pages/home.css';
+@import './pages/event.css';
+@import './pages/archive.css';
+@import './pages/transmission.css';
+
+@view-transition {
+  navigation: auto;
+}
+
+:root {
+  --primary: #FACC15;
+  --primary-dim: #b59207;
+  --secondary: #A855F7;
+  --background-dark: #0F172A;
+  --surface: #1E293B;
+  --grid: #334155;
+  --text-primary: #F8FAFC;
+  --text-mono: #94A3B8;
+
+  --font-display: 'League Spartan', sans-serif;
+  --font-body: 'League Spartan', sans-serif;
+  --font-mono: 'League Spartan', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#__nuxt,
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(to right, rgba(51, 65, 85, 0.45) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(51, 65, 85, 0.45) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--grid);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Shared keyframes */
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton-bar {
+  background: linear-gradient(90deg, var(--surface) 25%, var(--grid) 50%, var(--surface) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 0.125rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

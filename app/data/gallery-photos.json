@@ -1,0 +1,14 @@
+[
+  {
+    "src": "/public/photos/ejemplo-1.jpg",
+    "alt": "Foto de evento BilboDev"
+  },
+  {
+    "src": "/public/photos/ejemplo-2.jpg",
+    "alt": "Foto de evento BilboDev"
+  },
+  {
+    "src": "/public/photos/ejemplo-3.jpg",
+    "alt": "Foto de evento BilboDev"
+  }
+]

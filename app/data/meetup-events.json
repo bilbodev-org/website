@@ -1,0 +1,50 @@
+[
+  {
+    "id": "313835154",
+    "title": "Frontend desacoplado: Mock Service Worker",
+    "date": "2026-04-09",
+    "time": "19:00",
+    "description": "Si no tienes sitio en Meetup, puedes coger tu entrada en: [Entradas Evento](https://www.eventbrite.es/e/1986301894436) ¡Tercera charla del año! Carlos Borja, desarrollador de software, nos hablará de **Mock Service Worker**, la herramienta que está cambiando las reglas del juego en el desarrollo web. Deja de romper tus tests, domina el API Mocki...",
+    "url": "https://www.meetup.com/bilbo-dev/events/313835154/",
+    "image": "https://secure.meetupstatic.com/photos/event/a/a/e/a/highres_533263754.jpeg",
+    "venue": "Bilborock",
+    "city": "Bilbao",
+    "attendees": 8
+  },
+  {
+    "id": "313322983",
+    "title": "Headless CMS con Wordpress y Astro, por Eneko Olabarria",
+    "date": "2026-02-26",
+    "time": "19:00",
+    "description": "Si no tienes sitio en Meetup, puedes coger tu entrada en: https://www.eventbrite.es/e/1982991589224 Seguimos con nuestra segunda charla del año. Esta vez nos adentraremos en separar nuestra capa de Wordpress y nuestro frontal con uno de los frameworks más escuchados del momento: Astro. ¿Alguna vez te has preguntado como lograr esto? ¿Como empiez...",
+    "url": "https://www.meetup.com/bilbo-dev/events/313322983/",
+    "image": "https://secure.meetupstatic.com/photos/event/5/6/5/9/highres_532702105.jpeg",
+    "venue": "Bilborock",
+    "city": "Bilbao",
+    "attendees": 10
+  },
+  {
+    "id": "312895433",
+    "title": "MCP para frontends: más allá de las APIs, por Aaron Barcos",
+    "date": "2026-01-29",
+    "time": "18:30",
+    "description": "Kaixo! Si no tienes sitio, puedes coger tu entrada en: [https://www.eventbrite.com/e/entradas-mcp-para-frontends-mas-alla-de-las-apis-por-aaron-barcos-1981597716112](https://www.eventbrite.com/e/entradas-mcp-para-frontends-mas-alla-de-las-apis-por-aaron-barcos-1981597716112) Vamos a empezar el año con buen pie, y de que mejor manera que con una ...",
+    "url": "https://www.meetup.com/bilbo-dev/events/312895433/",
+    "image": "https://secure.meetupstatic.com/photos/event/e/5/e/highres_532263678.jpeg",
+    "venue": "Bilborock",
+    "city": "Bilbao",
+    "attendees": 8
+  },
+  {
+    "id": "311974227",
+    "title": "Bilbo Frontend - Kickoff - Official Launch",
+    "date": "2025-11-27",
+    "time": "18:30",
+    "description": "**¡Bienvenidos! Ongi etorri!** Empezamos con el primer evento inaugural del grupo Bilbo Frontend. Una comunidad creada por y para desarrolladores frontend, desarrolladores asecas, amantes de las interfaces, javascript... Y un largo etcétera. La finalidad de este evento es presentar el proyecto, crear comunidad y hacer crecer el grupo con nuevas ...",
+    "url": "https://www.meetup.com/bilbo-dev/events/311974227/",
+    "image": "https://secure.meetupstatic.com/photos/event/6/3/c/a/highres_531265546.jpeg",
+    "venue": "Bilborock",
+    "city": "Bilbao",
+    "attendees": 12
+  }
+]

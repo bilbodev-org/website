@@ -1,0 +1,42 @@
+name: Daily Meetup Scrape
+
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-meetup-scrape
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    name: Scrape Meetup data
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Scrape Meetup
+        run: npm run scrape
+
+      - name: Commit updated Meetup data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Update Meetup data'
+          file_pattern: 'app/data/*.json'
