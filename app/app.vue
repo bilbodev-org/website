@@ -1,11 +1,15 @@
 <template>
   <div class="app-root">
     <NuxtRouteAnnouncer />
-    <NuxtPage />
+    <MaintenanceScreen v-if="maintenance.enabled" :content="maintenance" />
+    <NuxtPage v-else />
   </div>
 </template>
 
 <script setup lang="ts">
+const appConfig = useAppConfig()
+const maintenance = appConfig.maintenance
+
 useHead({
   htmlAttrs: {
     lang: 'es',
@@ -14,10 +18,11 @@ useHead({
 })
 
 useSeoMeta({
-  title: 'BilboDev // Main Terminal',
-  description: 'BilboDev es la comunidad de desarrollo de software en Bilbao. Eventos, charlas y networking para desarrolladores.',
-  ogTitle: 'BilboDev',
-  ogDescription: 'Comunidad de desarrollo de software en Bilbao.',
-  ogType: 'website'
+  title: () => maintenance.enabled ? maintenance.title : 'BilboDev // Main Terminal',
+  description: () => maintenance.enabled ? maintenance.message : 'BilboDev es la comunidad de desarrollo de software en Bilbao. Eventos, charlas y networking para desarrolladores.',
+  ogTitle: () => maintenance.enabled ? maintenance.title : 'BilboDev',
+  ogDescription: () => maintenance.enabled ? maintenance.message : 'Comunidad de desarrollo de software en Bilbao.',
+  ogType: 'website',
+  robots: () => maintenance.enabled ? 'noindex, nofollow' : undefined
 })
 </script>

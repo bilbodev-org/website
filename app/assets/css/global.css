@@ -7,6 +7,7 @@
 @import './components/speaker-card.css';
 @import './components/community-metrics.css';
 @import './components/events-slider.css';
+@import './components/maintenance.css';
 @import './pages/home.css';
 @import './pages/event.css';
 @import './pages/archive.css';
