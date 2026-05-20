@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/icon'],
+  modules: ['@nuxt/icon', '@vercel/analytics'],
   css: ['~/assets/css/global.css'],
   routeRules: {
     '/archive.html': { redirect: '/archive' },
