@@ -1,0 +1,24 @@
+{
+  "name": "bilbodev",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "typecheck": "nuxt prepare && vue-tsc -p .nuxt/tsconfig.app.json --noEmit && vue-tsc -p .nuxt/tsconfig.node.json --noEmit"
+  },
+  "dependencies": {
+    "nuxt": "^4.5.2",
+    "three": "^0.186.0",
+    "vue": "^3.5.42",
+    "vue-router": "^5.3.1"
+  },
+  "devDependencies": {
+    "@types/three": "^0.185.4",
+    "typescript": "~5.9.3",
+    "vue-tsc": "^3.3.11"
+  }
+}

@@ -1,0 +1,13 @@
+export default defineNuxtConfig({
+  compatibilityDate: '2025-07-15',
+  devtools: { enabled: false },
+  css: ['~/assets/css/main.css'],
+  app: { head: {
+    htmlAttrs: { lang: 'es' },
+    title: 'BilboDev — Tecnología con raíces, conocimiento sin fronteras',
+    meta: [{ name: 'theme-color', content: '#171724' }],
+    link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }]
+  } },
+  nitro: { prerender: { crawlLinks: true } },
+  typescript: { strict: true }
+})
