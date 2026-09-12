@@ -7,11 +7,15 @@ const navigation = [
   { to: '/agenda', text: 'Encuentros' },
   { to: '/transparencia', text: 'Transparencia' }
 ]
-useSeoMeta({ description: 'Asociación Tecnológica BilboDev. Desde Bilbao, compartimos conocimiento sobre programación multiplataforma y conectamos a la comunidad tecnológica de Euskadi.' })
+const siteUnderConstruction = useRuntimeConfig().public.siteUnderConstruction
+if (!siteUnderConstruction) {
+  useSeoMeta({ description: 'Asociación Tecnológica BilboDev. Desde Bilbao, compartimos conocimiento sobre programación multiplataforma y conectamos a la comunidad tecnológica de Euskadi.' })
+}
 </script>
 
 <template>
-  <div class="site-shell">
+  <ConstructionPage v-if="siteUnderConstruction" />
+  <div v-else class="site-shell">
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
     <header class="site-header wrap">
       <NuxtLink class="brand-link" to="/" aria-label="BilboDev, inicio"><BrandLogo /></NuxtLink>

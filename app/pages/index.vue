@@ -7,12 +7,13 @@ useSeoMeta({ title: 'BilboDev — Tecnología con raíces, conocimiento sin fron
 </script>
 
 <template>
-  <div>
+  <div class="home-page">
     <section class="hero wrap">
+      <ClientOnly><ArrowScene /></ClientOnly>
       <div class="hero-topline eyebrow"><span><span class="small-cross" aria-hidden="true">+</span> ASOCIACIÓN TECNOLÓGICA · BILBAO</span><span>EST. NOVIEMBRE 2025</span></div>
       <div class="hero-main">
         <div class="hero-copy"><p class="hero-greeting">Kaixo, developer.</p><h1>El siguiente<br>Bilbao se escribe<br><span class="lavender">en comunidad<span class="accent">.</span></span></h1><p class="hero-description">De compartir código a compartir futuro. Somos una asociación sin ánimo de lucro que conecta a quienes crean tecnología en Euskadi.</p><div class="hero-actions"><NuxtLink class="button primary" to="/agenda">Nos vemos en el próximo <span aria-hidden="true">↗</span></NuxtLink><NuxtLink class="text-link" to="/asociacion">Conoce BilboDev <span aria-hidden="true">↗</span></NuxtLink></div></div>
-        <div class="hero-art"><div class="art-coordinate eyebrow">43.2630° N / 2.9350° W</div><ClientOnly><ArrowScene /><template #fallback><div class="scene-loading" aria-hidden="true"><BrandLogo /></div></template></ClientOnly><span class="art-index eyebrow">FIG. 01 — IDEAS EN MOVIMIENTO</span></div>
+        <div class="hero-arrow-space" aria-hidden="true"></div>
       </div>
       <div class="hero-bottom"><span>De la cultura de hacer.<br><strong>A la cultura de compartir.</strong></span><div class="hero-stat"><strong>200<span class="accent">+</span></strong><span>personas en Meetup<br>y una misma curiosidad</span></div><a href="#origen" class="scroll-link">SIGUE LA RÍA <span aria-hidden="true">↓</span></a></div>
     </section>

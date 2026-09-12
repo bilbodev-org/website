@@ -1,34 +1,36 @@
 <script setup lang="ts">
 import * as THREE from 'three'
+
 const host = ref<HTMLDivElement>()
 const ready = ref(false)
-const paused = ref(false)
-const active = ref(0)
-let resetScene = () => {}
-let nudge = (_key: string) => {}
 let disposeScene = () => {}
-onMounted(() => {
-  if (!host.value) return
+
+onMounted(async () => {
+  await nextTick()
   const el = host.value
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
-  paused.value = reducedMotion.matches
+  const hero = el?.closest('.hero') as HTMLElement | null
+  const space = hero?.querySelector('.hero-arrow-space') as HTMLElement | null
+  if (!el || !hero || !space) return
+
   let renderer: THREE.WebGLRenderer
   try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }) } catch { return }
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75))
   renderer.setClearColor(0x000000, 0)
   renderer.outputColorSpace = THREE.SRGBColorSpace
+  renderer.domElement.setAttribute('aria-hidden', 'true')
   el.prepend(renderer.domElement)
+
   const scene = new THREE.Scene()
-  const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 50)
-  camera.position.set(0, 0, 9)
+  const camera = new THREE.OrthographicCamera(0, 1, 1, 0, .1, 2000)
+  camera.position.z = 1000
   scene.add(new THREE.AmbientLight(0xffffff, 2.2))
   const key = new THREE.DirectionalLight(0xffecd5, 4.5)
-  key.position.set(-3, 5, 6)
+  key.position.set(-300, 500, 600)
   scene.add(key)
   const rim = new THREE.DirectionalLight(0xb9acff, 3)
-  rim.position.set(4, -1, 2)
+  rim.position.set(400, -100, 200)
   scene.add(rim)
-  // Rounded concave four-point arrow: the same silhouette as the logo.
+
   const vertices = [new THREE.Vector2(0, 1.32), new THREE.Vector2(-.98, -.83), new THREE.Vector2(0, -.40), new THREE.Vector2(.98, -.83)]
   const path = new THREE.Shape()
   vertices.forEach((point, index) => {
@@ -44,125 +46,217 @@ onMounted(() => {
   const geometry = new THREE.ExtrudeGeometry(path, { depth: .27, bevelEnabled: true, bevelSegments: 5, steps: 1, bevelSize: .065, bevelThickness: .065, curveSegments: 12 })
   geometry.center()
   const materials = [0xfbc15d, 0xb26ec0].map(color => new THREE.MeshStandardMaterial({ color, metalness: .26, roughness: .31 }))
-  const meshes = materials.map(material => { const mesh = new THREE.Mesh(geometry, material); scene.add(mesh); return mesh })
-  const origins = [new THREE.Vector3(-1.05, -.52, .1), new THREE.Vector3(.85, .75, 0)]
-  const rotations = [new THREE.Euler(.12, -.23, 1.23), new THREE.Euler(.13, .35, -.23)]
-  resetScene = () => meshes.forEach((mesh, i) => { mesh.position.copy(origins[i]!); mesh.rotation.copy(rotations[i]!); mesh.scale.setScalar(1) })
-  resetScene()
-  const pointer = new THREE.Vector2(10, 10)
-  const raycaster = new THREE.Raycaster()
-  let selected: THREE.Mesh | null = null
-  let hovered: THREE.Mesh | null = null
-  const dragPlane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0)
-  const dragOffset = new THREE.Vector3()
-  const hit = new THREE.Vector3()
-  function updatePointer(event: PointerEvent) {
-    const box = el.getBoundingClientRect()
-    pointer.set(((event.clientX - box.left) / box.width) * 2 - 1, -((event.clientY - box.top) / box.height) * 2 + 1)
-    raycaster.setFromCamera(pointer, camera)
-  }
-  function down(event: PointerEvent) {
-    if (event.target !== renderer.domElement) return
-    updatePointer(event)
-    const intersection = raycaster.intersectObjects(meshes)[0]
-    if (!intersection) return
-    selected = intersection.object as THREE.Mesh
-    active.value = meshes.findIndex(mesh => mesh.uuid === selected!.uuid)
-    dragPlane.constant = -selected.position.z
-    if (raycaster.ray.intersectPlane(dragPlane, hit)) dragOffset.copy(selected.position).sub(hit)
-    renderer.domElement.setPointerCapture(event.pointerId)
-    renderer.domElement.style.touchAction = 'none'
-    renderer.domElement.style.cursor = 'grabbing'
-  }
-  function move(event: PointerEvent) {
-    updatePointer(event)
-    if (selected && raycaster.ray.intersectPlane(dragPlane, hit)) {
-      selected.position.copy(hit.add(dragOffset))
-      selected.position.x = THREE.MathUtils.clamp(selected.position.x, -2, 2)
-      selected.position.y = THREE.MathUtils.clamp(selected.position.y, -1.35, 1.35)
-    } else {
-      hovered = (raycaster.intersectObjects(meshes)[0]?.object as THREE.Mesh) || null
-      renderer.domElement.style.cursor = hovered ? 'grab' : 'default'
-    }
-  }
-  function up(event: PointerEvent) {
-    selected = null
-    if (renderer.domElement.hasPointerCapture(event.pointerId)) renderer.domElement.releasePointerCapture(event.pointerId)
-    renderer.domElement.style.cursor = 'grab'
-    renderer.domElement.style.touchAction = 'pan-y'
-  }
-  function leave() { hovered = null }
-  renderer.domElement.style.touchAction = 'pan-y'
-  renderer.domElement.addEventListener('pointerdown', down)
-  renderer.domElement.addEventListener('pointermove', move)
-  renderer.domElement.addEventListener('pointerup', up)
-  renderer.domElement.addEventListener('pointercancel', up)
-  renderer.domElement.addEventListener('pointerleave', leave)
-  nudge = (key: string) => {
-    const mesh = meshes[active.value]!
-    if (key === 'ArrowLeft') mesh.position.x -= .14
-    if (key === 'ArrowRight') mesh.position.x += .14
-    if (key === 'ArrowUp') mesh.position.y += .14
-    if (key === 'ArrowDown') mesh.position.y -= .14
-    mesh.position.x = THREE.MathUtils.clamp(mesh.position.x, -2, 2)
-    mesh.position.y = THREE.MathUtils.clamp(mesh.position.y, -1.35, 1.35)
-  }
-  const resize = new ResizeObserver(() => {
-    const { width, height } = el.getBoundingClientRect()
-    if (!width || !height) return
-    renderer.setSize(width, height)
-    camera.aspect = width / height
-    camera.position.z = camera.aspect < 1 ? 10.5 : 9
-    camera.updateProjectionMatrix()
+  const meshes = materials.map(material => {
+    const mesh = new THREE.Mesh(geometry, material)
+    scene.add(mesh)
+    return mesh
   })
-  resize.observe(el)
-  let visible = true
-  const observer = new IntersectionObserver(([entry]) => { visible = entry?.isIntersecting ?? true })
-  observer.observe(el)
+  meshes[0]!.rotation.set(.12, -.23, 1.23)
+  meshes[1]!.rotation.set(.13, .35, -.23)
+
+  const buttons = [...el.querySelectorAll<HTMLButtonElement>('.hero-arrow-hit')]
+  const positions = [new THREE.Vector2(), new THREE.Vector2()]
+  const velocities = [new THREE.Vector2(), new THREE.Vector2()]
+  const spins: ({ start: number; from: number } | null)[] = [null, null]
+  let width = 1
+  let height = 1
+  let size = 70
+  let radius = 90
+  let initialized = false
   let frame = 0
-  let t = 0
   let lastTime = 0
+  let visible = true
+  let drag: { index: number; pointerId: number; startX: number; startY: number; offsetX: number; offsetY: number; lastTime: number; moved: boolean } | null = null
+
+  function reflect(value: number, min: number, max: number) {
+    const span = max - min
+    if (span <= 0) return { position: (min + max) / 2, direction: 0 }
+    const offset = ((value - min) % (span * 2) + span * 2) % (span * 2)
+    return offset <= span
+      ? { position: min + offset, direction: 1 }
+      : { position: max - (offset - span), direction: -1 }
+  }
+  function limits() {
+    return { left: radius, right: width - radius, top: radius, bottom: height - radius }
+  }
+  function syncPosition(index: number) {
+    const point = positions[index]!
+    meshes[index]!.position.set(point.x, height - point.y, 0)
+    buttons[index]!.style.left = `${point.x}px`
+    buttons[index]!.style.top = `${point.y}px`
+  }
+  function resize() {
+    const oldWidth = width
+    const oldHeight = height
+    const bounds = el!.getBoundingClientRect()
+    width = Math.max(1, bounds.width)
+    height = Math.max(1, bounds.height)
+    size = Math.min(92, width * (width < 780 ? .13 : .085), height * .13)
+    radius = size * 1.35
+    renderer.setSize(width, height)
+    camera.right = width
+    camera.top = height
+    camera.updateProjectionMatrix()
+    const { left, right, top, bottom } = limits()
+    buttons.forEach(button => { button.style.width = `${radius * 2}px`; button.style.height = `${radius * 2}px` })
+
+    if (!initialized) {
+      const stage = space!.getBoundingClientRect()
+      positions[0]!.set(stage.left - bounds.left + stage.width * .77, stage.top - bounds.top + stage.height * .37)
+      positions[1]!.set(stage.left - bounds.left + stage.width * .36, stage.top - bounds.top + stage.height * .68)
+      initialized = true
+    } else {
+      positions.forEach(point => point.set(point.x * width / oldWidth, point.y * height / oldHeight))
+    }
+    positions.forEach((point, index) => {
+      point.set(THREE.MathUtils.clamp(point.x, left, right), THREE.MathUtils.clamp(point.y, top, bottom))
+      meshes[index]!.scale.setScalar(size)
+      syncPosition(index)
+    })
+  }
+  function spin(index: number) {
+    const mesh = meshes[index]!
+    spins[index] = { start: performance.now(), from: mesh.rotation.z }
+  }
+  function pointerDown(event: PointerEvent, index: number) {
+    if (event.button !== 0 || drag) return
+    const point = positions[index]!
+    const bounds = el!.getBoundingClientRect()
+    drag = {
+      index, pointerId: event.pointerId, startX: event.clientX, startY: event.clientY,
+      offsetX: event.clientX - bounds.left - point.x, offsetY: event.clientY - bounds.top - point.y,
+      lastTime: event.timeStamp, moved: false,
+    }
+    velocities[index]!.set(0, 0)
+    buttons[index]!.setPointerCapture(event.pointerId)
+    buttons[index]!.style.cursor = 'grabbing'
+    event.preventDefault()
+  }
+  function pointerMove(event: PointerEvent) {
+    if (!drag || drag.pointerId !== event.pointerId) return
+    if (!drag.moved && Math.hypot(event.clientX - drag.startX, event.clientY - drag.startY) < 5) return
+    drag.moved = true
+    const bounds = el!.getBoundingClientRect()
+    const { left, right, top, bottom } = limits()
+    const point = positions[drag.index]!
+    const x = reflect(event.clientX - bounds.left - drag.offsetX, left, right)
+    const y = reflect(event.clientY - bounds.top - drag.offsetY, top, bottom)
+    const seconds = Math.max(.008, (event.timeStamp - drag.lastTime) / 1000)
+    velocities[drag.index]!.set((x.position - point.x) / seconds, (y.position - point.y) / seconds).clampLength(0, 1500)
+    point.set(x.position, y.position)
+    syncPosition(drag.index)
+    drag.lastTime = event.timeStamp
+    event.preventDefault()
+  }
+  function pointerUp(event: PointerEvent) {
+    if (!drag || drag.pointerId !== event.pointerId) return
+    const { index, moved, lastTime } = drag
+    if (!moved) spin(index)
+    else if (event.timeStamp - lastTime > 100) velocities[index]!.set(0, 0)
+    buttons[index]!.style.cursor = 'grab'
+    if (buttons[index]!.hasPointerCapture(event.pointerId)) buttons[index]!.releasePointerCapture(event.pointerId)
+    drag = null
+    event.preventDefault()
+  }
+  function pointerCancel(event: PointerEvent) {
+    if (drag?.pointerId !== event.pointerId) return
+    buttons[drag.index]!.style.cursor = 'grab'
+    velocities[drag.index]!.set(0, 0)
+    drag = null
+  }
+  function keyboard(event: KeyboardEvent, index: number) {
+    const steps: Record<string, [number, number]> = {
+      ArrowLeft: [-24, 0], ArrowRight: [24, 0], ArrowUp: [0, -24], ArrowDown: [0, 24],
+    }
+    const step = steps[event.key]
+    if (!step) return
+    event.preventDefault()
+    const point = positions[index]!
+    const { left, right, top, bottom } = limits()
+    point.set(reflect(point.x + step[0], left, right).position, reflect(point.y + step[1], top, bottom).position)
+    velocities[index]!.set(0, 0)
+    syncPosition(index)
+  }
+  const listeners: (() => void)[] = []
+  buttons.forEach((button, index) => {
+    const down = (event: PointerEvent) => pointerDown(event, index)
+    const keydown = (event: KeyboardEvent) => keyboard(event, index)
+    const click = (event: MouseEvent) => { if (event.detail === 0) spin(index) }
+    button.addEventListener('pointerdown', down)
+    button.addEventListener('pointermove', pointerMove)
+    button.addEventListener('pointerup', pointerUp)
+    button.addEventListener('pointercancel', pointerCancel)
+    button.addEventListener('keydown', keydown)
+    button.addEventListener('click', click)
+    listeners.push(() => {
+      button.removeEventListener('pointerdown', down)
+      button.removeEventListener('pointermove', pointerMove)
+      button.removeEventListener('pointerup', pointerUp)
+      button.removeEventListener('pointercancel', pointerCancel)
+      button.removeEventListener('keydown', keydown)
+      button.removeEventListener('click', click)
+    })
+  })
+
+  const resizeObserver = new ResizeObserver(resize)
+  resizeObserver.observe(hero)
+  const visibilityObserver = new IntersectionObserver(([entry]) => { visible = entry?.isIntersecting ?? true })
+  visibilityObserver.observe(hero)
+  resize()
+  window.addEventListener('resize', resize)
+  camera.updateMatrixWorld(true)
+
   function animate(time: number) {
     frame = requestAnimationFrame(animate)
-    const delta = Math.min((time - lastTime) / 1000, .04)
+    const delta = Math.min(Math.max(0, (time - lastTime) / 1000), .04)
     lastTime = time
-    if (!visible || document.hidden) return
-    if (!paused.value) t += delta
-    meshes.forEach((mesh, i) => {
-      if (mesh !== selected) {
-        mesh.rotation.y = rotations[i]!.y + (paused.value ? 0 : Math.sin(t * .7 + i) * .14)
-        mesh.rotation.x = rotations[i]!.x + (paused.value ? 0 : Math.sin(t * .9 + i) * .09)
-        if (!paused.value) mesh.position.y += (Math.sin(t * .8 + i) - Math.sin((t - delta) * .8 + i)) * .12
+    if (document.hidden || !visible) return
+    const { left, right, top, bottom } = limits()
+    positions.forEach((point, index) => {
+      const velocity = velocities[index]!
+      if (drag?.index !== index && velocity.lengthSq() > 1) {
+        const x = reflect(point.x + velocity.x * delta, left, right)
+        const y = reflect(point.y + velocity.y * delta, top, bottom)
+        point.set(x.position, y.position)
+        velocity.x *= x.direction < 0 ? -.72 : 1
+        velocity.y *= y.direction < 0 ? -.72 : 1
+        velocity.multiplyScalar(Math.exp(-1.65 * delta))
+        syncPosition(index)
       }
-      const scale = mesh === hovered ? 1.07 : 1
-      mesh.scale.lerp(new THREE.Vector3(scale, scale, scale), .1)
+      const currentSpin = spins[index]
+      if (currentSpin) {
+        const progress = Math.min(1, (time - currentSpin.start) / 650)
+        const eased = progress < .5 ? 4 * progress ** 3 : 1 - (-2 * progress + 2) ** 3 / 2
+        meshes[index]!.rotation.z = currentSpin.from + Math.PI * 2 * eased
+        if (progress === 1) spins[index] = null
+      }
     })
     renderer.render(scene, camera)
   }
   frame = requestAnimationFrame(animate)
   ready.value = true
-  const motionChange = () => { paused.value = reducedMotion.matches }
-  reducedMotion.addEventListener('change', motionChange)
   disposeScene = () => {
-    cancelAnimationFrame(frame); resize.disconnect(); observer.disconnect()
-    reducedMotion.removeEventListener('change', motionChange)
-    renderer.domElement.removeEventListener('pointerdown', down)
-    renderer.domElement.removeEventListener('pointermove', move)
-    renderer.domElement.removeEventListener('pointerup', up)
-    renderer.domElement.removeEventListener('pointercancel', up)
-    renderer.domElement.removeEventListener('pointerleave', leave)
-    geometry.dispose(); materials.forEach(material => material.dispose()); renderer.dispose(); renderer.domElement.remove()
+    cancelAnimationFrame(frame)
+    resizeObserver.disconnect()
+    visibilityObserver.disconnect()
+    window.removeEventListener('resize', resize)
+    listeners.forEach(remove => remove())
+    geometry.dispose()
+    materials.forEach(material => material.dispose())
+    renderer.dispose()
+    renderer.domElement.remove()
   }
 })
 onBeforeUnmount(() => disposeScene())
 </script>
 
 <template>
-  <div class="arrow-experience">
-    <div ref="host" class="arrow-canvas" role="group" aria-label="Flechas interactivas del logotipo de BilboDev">
-      <svg v-if="!ready" class="arrow-fallback" viewBox="0 0 450 380" aria-hidden="true"><path d="m38 228 179-38-55 72 24 80Z" fill="#fbc15d" stroke="#fbc15d" stroke-linejoin="round" stroke-width="9"/><path d="m239 173 115-131 31 165-77-40Z" fill="#b26ec0" stroke="#b26ec0" stroke-linejoin="round" stroke-width="9"/></svg>
-    </div>
-    <div v-if="ready" class="scene-caption"><span class="drag-symbol" aria-hidden="true">✥</span><span>Las ideas se mueven. Prueba a arrastrarlas.</span><button :aria-label="paused ? 'Activar movimiento' : 'Pausar movimiento'" :aria-pressed="paused" @click="paused = !paused">{{ paused ? '▷' : 'Ⅱ' }}</button><button aria-label="Restablecer flechas" @click="resetScene()">↺</button></div>
-    <div v-if="ready" class="keyboard-controls"><button v-for="(color, index) in ['naranja', 'lavanda']" :key="color" @focus="active = index" @keydown.left.prevent="nudge('ArrowLeft')" @keydown.right.prevent="nudge('ArrowRight')" @keydown.up.prevent="nudge('ArrowUp')" @keydown.down.prevent="nudge('ArrowDown')">Mover flecha {{ color }} con las teclas de dirección</button></div>
+  <div ref="host" class="home-arrows" :class="{ 'is-ready': ready }" role="group" aria-label="Flechas interactivas de BilboDev">
+    <template v-if="!ready">
+      <svg class="free-arrow-fallback is-orange" viewBox="-1.2 -1.5 2.4 3" aria-hidden="true"><path d="M0-1.32-.98.83 0 .40 .98.83Z" fill="#fbc15d" stroke="#fbc15d" stroke-width=".07" stroke-linejoin="round" /></svg>
+      <svg class="free-arrow-fallback is-lavender" viewBox="-1.2 -1.5 2.4 3" aria-hidden="true"><path d="M0-1.32-.98.83 0 .40 .98.83Z" fill="#b26ec0" stroke="#b26ec0" stroke-width=".07" stroke-linejoin="round" /></svg>
+    </template>
+    <button class="hero-arrow-hit" type="button" aria-label="Flecha naranja. Arrastra para moverla, pulsa para girarla. Usa las flechas del teclado para moverla." />
+    <button class="hero-arrow-hit" type="button" aria-label="Flecha lavanda. Arrastra para moverla, pulsa para girarla. Usa las flechas del teclado para moverla." />
   </div>
 </template>
