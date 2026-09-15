@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     htmlAttrs: { lang: 'es' },
     title: 'BilboDev — Tecnología con raíces, conocimiento sin fronteras',
     meta: [{ name: 'theme-color', content: '#171724' }],
-    link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   } },
   nitro: { prerender: {
     crawlLinks: true,
