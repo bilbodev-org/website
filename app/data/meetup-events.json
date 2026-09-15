@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "source": "https://www.meetup.com/es-es/bilbo-dev/",
+  "syncedAt": "2026-09-15T08:50:00.024Z",
+  "events": [
+    {
+      "id": "316368855",
+      "title": "Zelaq UI: Compartiendo componentes entre Web y (React)Native",
+      "description": "Volvemos del verano con las pilas cargadas🔋 y esta vez con una charla de la creadora de una interentísima librería llamada **Zelaq UI**.\n\n¿Cómo podemos compartir componentes entre web y React Native sin renunciar a las particularidades de cada plataforma?\n\nEn esta charla veremos cómo reutilizar APIs, tokens de diseño, temas, estados y lógica entre React y React Native, manteniendo separado aquello que debe adaptarse a web y móvil.\n\nConoceremos **Zelaq UI**, una librería de componentes creada para ambas plataformas. Una charla especialmente interesante si trabajas con **React, React Native, sistemas de diseño o librerías de componentes**, o simplemente quieres descubrir cómo plantear una arquitectura compartida entre web y móvil.\n\n**Te esperamos en BilboDev donde aprenderás, conectarás con gente del sector IT y sobretodo pasarás un buen rato.**",
+      "date": "2026-09-17T19:00:00+02:00",
+      "endDate": "2026-09-17T20:30:00+02:00",
+      "imageUrl": "https://secure.meetupstatic.com/photos/event/6/2/2/8/highres_535945128.jpeg",
+      "url": "https://www.meetup.com/bilbo-dev/events/316368855/",
+      "status": "scheduled",
+      "isOnline": false,
+      "location": "Bilborock · Bilbao",
+      "address": "Calle Muelle de la Merced, 1, 48003 Bilbao, Bilbao"
+    },
+    {
+      "id": "315413484",
+      "title": "Summer Quiz 2026: Aprende mientras disfrutas",
+      "description": "Este verano en **BilboDev** cambiamos el formato habitual por algo más ligero y divertido.\n\nEn este evento nos juntaremos para jugar a un **quiz tipo Kahoot** con preguntas sobre **programación, diseño, desarrollo web...** La idea no es hacer una charla tradicional, sino aprender conceptos y descubrir curiosidades mientras pasamos un buen rato en comunidad.\n\nSerá un encuentro informal, pensado para participar sin presión, compartir conocimientos, tomar algo y disfrutar de una tarde diferente con gente del sector.\n\nNo hace falta ser experto ni prepararse nada: solo traer ganas de jugar y aprender alguna cosa nueva por el camino.\n\nVenga, apúntate. Aprenderás, conectarás con gente del sector IT y sobretodo pasarás un buen rato.\n\n**Te esperamos en BilboDev para una tarde de verano, código y buen ambiente.**",
+      "date": "2026-07-09T19:00:00+02:00",
+      "endDate": "2026-07-09T20:30:00+02:00",
+      "imageUrl": "https://secure.meetupstatic.com/photos/event/3/e/e/9/highres_534916105.jpeg",
+      "url": "https://www.meetup.com/bilbo-dev/events/315413484/",
+      "status": "scheduled",
+      "isOnline": false,
+      "location": "Bilborock · Bilbao",
+      "address": "Calle Muelle de la Merced, 1, 48003 Bilbao, Bilbao"
+    },
+    {
+      "id": "314864275",
+      "title": "Diseñar en 2026: Menos píxeles, más decisiones",
+      "description": "En los últimos años hemos pasado de diseñar interfaces a diseñar comportamientos. En un contexto donde la inteligencia artificial ya puede generar pantallas, código y flujos en segundos, el verdadero diferencial ya no está solo en producir más rápido, sino en decidir mejor.\n\nEn esta charla, **Rebeca Fernandes** explorará cómo está cambiando el UX/UI en plena era de la IA, qué nuevos retos aparecen y cómo developers y diseñadores pueden colaborar para crear experiencias más claras, útiles y humanas.\n\nHablaremos de IA, producto, reglas, decisiones y del futuro de cómo construimos tecnología.\n\nVenga, apúntate. Aprenderás, conectarás con gente del sector IT/creativo y sobretodo pasarás un buen rato.\n\nNo te lo pierdas, te esperamos :)",
+      "date": "2026-06-04T19:00:00+02:00",
+      "endDate": "2026-06-04T20:30:00+02:00",
+      "imageUrl": "https://secure.meetupstatic.com/photos/event/4/0/0/4/highres_534316388.jpeg",
+      "url": "https://www.meetup.com/bilbo-dev/events/314864275/",
+      "status": "scheduled",
+      "isOnline": false,
+      "location": "Bilborock · Bilbao",
+      "address": "Calle Muelle de la Merced, 1, 48003 Bilbao, Bilbao"
+    },
+    {
+      "id": "313835154",
+      "title": "Frontend desacoplado: Mock Service Worker",
+      "description": "Si no tienes sitio en Meetup, puedes coger tu entrada en: [Entradas Evento](https://www.eventbrite.es/e/1986301894436)\n\n¡Tercera charla del año! Carlos Borja, desarrollador de software, nos hablará de **Mock Service Worker**, la herramienta que está cambiando las reglas del juego en el desarrollo web.\n\nDeja de romper tus tests, domina el API Mocking con esta biblioteca.\n¿Cansado de que tus tests fallen porque la API externa está caída? ¿O de tener que esperar a que el equipo de Backend termine un endpoint para poder avanzar en el Frontend?\n\nVenga, apúntate. Aprenderás, conectarás con gente del sector IT y sobretodo pasarás un buen rato.\n\nNo te lo pierdas, te esperamos :)",
+      "date": "2026-04-09T19:00:00+02:00",
+      "endDate": "2026-04-09T20:30:00+02:00",
+      "imageUrl": "https://secure.meetupstatic.com/photos/event/a/a/e/a/highres_533263754.jpeg",
+      "url": "https://www.meetup.com/bilbo-dev/events/313835154/",
+      "status": "scheduled",
+      "isOnline": false,
+      "location": "Bilborock · Bilbao",
+      "address": "Calle Muelle de la Merced, 1, 48003 Bilbao, Bilbao"
+    },
+    {
+      "id": "313322983",
+      "title": "Headless CMS con Wordpress y Astro, por Eneko Olabarria",
+      "description": "Si no tienes sitio en Meetup, puedes coger tu entrada en: https://www.eventbrite.es/e/1982991589224\n\nSeguimos con nuestra segunda charla del año. Esta vez nos adentraremos en separar nuestra capa de Wordpress y nuestro frontal con uno de los frameworks más escuchados del momento: Astro.\n\n¿Alguna vez te has preguntado como lograr esto? ¿Como empiezo con Astro, como funciona un headless en Wordpress? Esto es lo que Eneko Olabarri, experimentado desarrollador en estas tecnologías, nos contará en esta interesante charla.\n\nVenga, apúntate. Aprenderás, conectarás con gente del sector IT y sobretodo pasarás un buen rato!\n\nNo lo pierdas, te esperamos :)",
+      "date": "2026-02-26T19:00:00+01:00",
+      "endDate": "2026-02-26T20:30:00+01:00",
+      "imageUrl": "https://secure.meetupstatic.com/photos/event/5/6/5/9/highres_532702105.jpeg",
+      "url": "https://www.meetup.com/bilbo-dev/events/313322983/",
+      "status": "scheduled",
+      "isOnline": false,
+      "location": "Bilborock · Bilbao",
+      "address": "Calle Muelle de la Merced, 1, 48003 Bilbao, Bilbao"
+    },
+    {
+      "id": "312895433",
+      "title": "MCP para frontends: más allá de las APIs, por Aaron Barcos",
+      "description": "Kaixo!\n\nSi no tienes sitio, puedes coger tu entrada en: [https://www.eventbrite.com/e/entradas-mcp-para-frontends-mas-alla-de-las-apis-por-aaron-barcos-1981597716112](https://www.eventbrite.com/e/entradas-mcp-para-frontends-mas-alla-de-las-apis-por-aaron-barcos-1981597716112)\n\nVamos a empezar el año con buen pie, y de que mejor manera que con una charla sobre MCPs?\n\nNo lo paramos de escuchar pero... que es exactamente eso de un MCP? En esta charla, comprenderemos al detalle de que se trata este modelo de comunicación entre los modelos de Inteligencia Artificial y nuestras aplicaciones, incluso construiremos uno de manera muy muy sencilla.\n\nVenga, apúntate. Aprenderás, conectarás con gente del sector IT y sobretodo pasarás un buen rato!\n\nNo lo pierdas, te esperamos :)",
+      "date": "2026-01-29T18:30:00+01:00",
+      "endDate": "2026-01-29T20:00:00+01:00",
+      "imageUrl": "https://secure.meetupstatic.com/photos/event/e/5/e/highres_532263678.jpeg",
+      "url": "https://www.meetup.com/bilbo-dev/events/312895433/",
+      "status": "scheduled",
+      "isOnline": false,
+      "location": "Bilborock · Bilbao",
+      "address": "Calle Muelle de la Merced, 1, 48003 Bilbao, Bilbao"
+    },
+    {
+      "id": "311974227",
+      "title": "Bilbo Frontend - Kickoff - Official Launch",
+      "description": "**¡Bienvenidos! Ongi etorri!**\n\nEmpezamos con el primer evento inaugural del grupo Bilbo Frontend. Una comunidad creada por y para desarrolladores frontend, desarrolladores asecas, amantes de las interfaces, javascript... Y un largo etcétera.\n\nLa finalidad de este evento es presentar el proyecto, crear comunidad y hacer crecer el grupo con nuevas ideas e integrantes. En él, el organizador Aarón nos hablará de como se enfocará el grupo Bilbo Frontend en los próximos eventos, se expondrán ideas y se abrirá a conocer nuevas iniciativas.\n\nY por supuesto, se hablará de frontend. ¿A que esperas? Nosotros a ti, para crear algo increible!",
+      "date": "2025-11-27T18:30:00+01:00",
+      "endDate": "2025-11-27T20:00:00+01:00",
+      "imageUrl": "https://secure.meetupstatic.com/photos/event/6/3/c/a/highres_531265546.jpeg",
+      "url": "https://www.meetup.com/bilbo-dev/events/311974227/",
+      "status": "scheduled",
+      "isOnline": false,
+      "location": "Bilborock · Bilbao",
+      "address": "Calle Muelle de la Merced, 1, 48003 Bilbao, Bilbao"
+    }
+  ]
+}

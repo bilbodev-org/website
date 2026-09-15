@@ -8,7 +8,9 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "typecheck": "nuxt prepare && vue-tsc -p .nuxt/tsconfig.app.json --noEmit && vue-tsc -p .nuxt/tsconfig.node.json --noEmit"
+    "typecheck": "nuxt prepare && vue-tsc -p .nuxt/tsconfig.app.json --noEmit && vue-tsc -p .nuxt/tsconfig.node.json --noEmit",
+    "events:sync": "node scripts/sync-meetup.mjs",
+    "test": "node --test tests/*.test.mjs"
   },
   "dependencies": {
     "nuxt": "^4.5.2",

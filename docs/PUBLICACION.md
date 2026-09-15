@@ -21,7 +21,7 @@ Antes de solicitar el programa: verificar elegibilidad registral, aportar datos 
 
 ## Contenido y mantenimiento
 
-`app/data/events.ts` contiene siete encuentros documentados en https://www.meetup.com/es-es/bilbo-dev/ y el archivo previo https://www.meetup.com/es-ES/bilbo-frontend/. No existe sincronización automática: actualizar al anunciar nuevos encuentros. Las fechas incorporan la zona horaria de Bilbao. Los eventos pasados se clasifican al abrir la página, pero también se debe regenerar periódicamente el sitio estático para que el HTML inicial siga actualizado. La cifra «200+» corresponde a miembros del grupo de Meetup, no socios ni asistentes únicos; fue aportada por la asociación.
+`app/data/meetup-events.json` guarda las convocatorias públicas de BilboDev en Meetup. Se actualiza con `npm run events:sync` o con el workflow diario de GitHub Actions. La agenda muestra cuándo se consultó la fuente y avisa si han pasado más de siete días. Las fechas se presentan en la zona horaria de Bilbao y los eventos cambian de sección al finalizar. Hay que regenerar y desplegar el sitio estático después de sincronizar para publicar los cambios. Consulta `docs/EVENTOS.md`. La cifra «200+» corresponde a miembros del grupo de Meetup, no socios ni asistentes únicos; fue aportada por la asociación.
 
 Fotografía: Tiia Monto, https://commons.wikimedia.org/wiki/File:Bilbao_panorama_2.jpg, CC BY-SA 3.0. Versión reducida a 2400 px, encuadrada y con superposición de color en CSS. Se conserva su atribución en el aviso legal.
 

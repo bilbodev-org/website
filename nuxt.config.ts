@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['~/assets/css/main.css'],
   runtimeConfig: {
-    public: { siteUnderConstruction: true }
+    public: { siteUnderConstruction: false }
   },
   app: { head: {
     htmlAttrs: { lang: 'es' },

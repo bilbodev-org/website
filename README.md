@@ -16,6 +16,7 @@ Para revisar la web completa durante el desarrollo, ejecuta `NUXT_PUBLIC_SITE_UN
 ## Verificación y producción
 
 ```bash
+npm test
 npm run typecheck
 npm run build
 npm run generate
@@ -26,10 +27,22 @@ npm run generate
 ## Contenido
 
 - `app/pages/`: inicio, asociación, encuentros, participación, transparencia, contacto, aviso legal y privacidad.
-- `app/data/events.ts`: convocatorias y archivo de Meetup.
+- `app/data/meetup-events.json`: archivo de eventos reales obtenido de Meetup.
+- `scripts/sync-meetup.mjs`: sincronización de las páginas públicas, sin API ni Meetup Pro.
+- `docs/EVENTOS.md`: funcionamiento, automatización y mantenimiento de la agenda.
 - `app/data/association.ts`: datos institucionales **ficticios**, señalados expresamente en el sitio.
 - `app/components/ArrowScene.client.vue`: flechas Three.js, arrastre, controles por teclado, pausa, reinicio y movimiento reducido.
 - `app/assets/css/main.css`: diseño adaptable y tipografías alojadas localmente.
 - `docs/PUBLICACION.md`: fuentes, créditos y cambios necesarios antes de solicitar Google para Organizaciones sin Ánimo de Lucro.
 
-La agenda es editorial y requiere mantenimiento. Las inscripciones y el contacto se gestionan en los canales reales de BilboDev. La vista previa es privada; sustituir los datos ficticios y completar la documentación antes de publicar definitivamente.
+La agenda se alimenta de un archivo versionado de Meetup, actualizable con `npm run events:sync` y mediante GitHub Actions. Las inscripciones y el contacto se gestionan en los canales reales de BilboDev. La vista previa es privada; sustituir los datos ficticios y completar la documentación antes de publicar definitivamente.
+
+## Actualizar los eventos
+
+```bash
+npm run events:sync
+```
+
+Requiere Node.js 22 y acceso a las páginas públicas de Meetup; no requiere instalar dependencias, claves ni suscripción Pro. La vista `/agenda` incluye próximos encuentros, archivo con búsqueda y filtro por año, descripciones, horarios de Bilbao y enlaces individuales. La portada utiliza la misma fuente.
+
+El workflow `.github/workflows/sync-meetup.yml` está preparado para actualizar el JSON cada día y bajo demanda cuando se suba a GitHub. Consulta [Eventos](docs/EVENTOS.md) para los permisos necesarios y la regeneración del sitio estático. El modo de construcción sigue activo por defecto.
