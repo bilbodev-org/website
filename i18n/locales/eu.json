@@ -246,8 +246,7 @@
     "description": "Elkartearen identifikazioa eta webgune hau erabiltzeko baldintzak.",
     "identification": "Identifikazioa",
     "holder": "Titularra: {name}. Jarduera: Euskadin plataforma anitzeko programazioari buruzko ezagutza zabaltzea eta sustatzea.",
-    "details": "Adibidezko IFZ: {nif}. Adibidezko erregistroa: {registry}. Adibidezko helbidea: {address}. Adibidezko helbide elektronikoa, ez dago martxan: {email}.",
-    "contactBefore": "Harremanetarako kanal erabilgarria honako talde hau da:",
+    "details": "IFZ: {nif}. Helbidea: {address}. Harremanetarako helbide elektronikoa: {email}.",
     "purpose": "Webgunearen xedea",
     "purposeText": "Webgune honek elkarteari, haren xedeari eta jarduerei buruzko informazioa eskaintzen du. Bertaratzeko datak eta baldintzak jatorrizko deialdietan kontsultatu behar dira, eguneratu egin baitaitezke.",
     "links": "Edukiak eta estekak",
@@ -257,7 +256,7 @@
     "photoMiddle": "eta lizentzia hau du:",
     "photoAfter": "Argazkia moztuta eta kolore-geruza batekin erakusten da orrian. Argazkiaren lizentzia ez zaio BilboDev-en logotipoari aplikatzen.",
     "update": "Eguneratzea",
-    "updateText": "Edukia 2026ko irailaren 10ean berrikusi zen. Adibidezko lege-identifikazioa behin betiko argitalpenaren aurretik egiaztatu eta ordeztu behar da."
+    "updateText": "Edukia 2026ko irailaren 10ean berrikusi zen. Elkartearen IFZ izapidetzen ari da."
   },
   "privacy": {
     "seoTitle": "Pribatutasuna — BilboDev",

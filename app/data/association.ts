@@ -2,10 +2,10 @@
 export const association = {
   name: 'Asociación Tecnológica BilboDev',
   demo: true,
-  nif: 'G-XXXXXXXX',
+  nif: 'En tramitación',
   registry: 'AS/B/00000/2025',
-  address: 'Calle del Astillero, 12 · 48013 Bilbao',
-  email: 'hola@bilbodev.example',
+  address: 'Calle Santa Ana 2, Piso 4º A · 48450 Etxebarri',
+  email: 'bilbofrontend@gmail.com',
   board: [
     { role: 'Presidencia', name: 'Ane Etxebarria' },
     { role: 'Secretaría', name: 'Mikel Arana' },

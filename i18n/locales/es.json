@@ -246,8 +246,7 @@
     "description": "Identificación de la asociación y condiciones de uso de este sitio.",
     "identification": "Identificación",
     "holder": "Titular: {name}. Actividad: divulgación y promoción del conocimiento sobre programación multiplataforma en Euskadi.",
-    "details": "NIF de ejemplo: {nif}. Registro de ejemplo: {registry}. Domicilio de ejemplo: {address}. Correo de ejemplo, no operativo: {email}.",
-    "contactBefore": "El contacto operativo disponible es el grupo de",
+    "details": "NIF: {nif}. Domicilio: {address}. Correo de contacto: {email}.",
     "purpose": "Objeto del sitio",
     "purposeText": "Esta web ofrece información sobre la asociación, su misión y sus actividades. Las fechas y condiciones de asistencia deben consultarse en las convocatorias originales, que pueden actualizarse.",
     "links": "Contenidos y enlaces",
@@ -257,7 +256,7 @@
     "photoMiddle": "bajo licencia",
     "photoAfter": "Se muestra encuadrada y con una superposición de color en la página. La licencia de la fotografía no se extiende al logotipo de BilboDev.",
     "update": "Actualización",
-    "updateText": "Contenido revisado el 10 de septiembre de 2026. La identificación legal de ejemplo debe validarse y sustituirse antes de la publicación definitiva."
+    "updateText": "Contenido revisado el 10 de septiembre de 2026. El NIF de la asociación está en tramitación."
   },
   "privacy": {
     "seoTitle": "Privacidad — BilboDev",
