@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
-  modules: ['@nuxtjs/i18n'],
+  modules: ['@nuxtjs/i18n', '@vercel/analytics'],
   css: ['~/assets/css/main.css'],
   runtimeConfig: {
     public: { siteUnderConstruction: true }
