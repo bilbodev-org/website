@@ -18,6 +18,9 @@ logs
 .fleet
 .idea
 
+# Local hosting / config files
+.openai/
+
 # Local env files
 .env
 .env.*
