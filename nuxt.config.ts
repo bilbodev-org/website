@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/i18n'],
   css: ['~/assets/css/main.css'],
   runtimeConfig: {
-    public: { siteUnderConstruction: true }
+    public: { siteUnderConstruction: false }
   },
   app: { head: {
     title: 'BilboDev — Tecnología con raíces, conocimiento sin fronteras',

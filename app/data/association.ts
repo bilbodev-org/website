@@ -7,8 +7,8 @@ export const association = {
   address: 'Calle Santa Ana 2, Piso 4º A · 48450 Etxebarri',
   email: 'bilbofrontend@gmail.com',
   board: [
-    { role: 'Presidencia', name: 'Ane Etxebarria' },
-    { role: 'Secretaría', name: 'Mikel Arana' },
-    { role: 'Tesorería', name: 'Leire Mendizabal' }
+    { role: 'Presidencia', name: 'Aarón Barcos' },
+    { role: 'Secretaría', name: 'Rebeca Fernandes' },
+    { role: 'Tesorería', name: 'Rebeca Fernandes' }
   ]
 }
