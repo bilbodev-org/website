@@ -442,12 +442,12 @@ onBeforeUnmount(() => disposeScene())
 </script>
 
 <template>
-  <div ref="host" class="home-arrows" :class="{ 'is-ready': ready }" role="group" aria-label="Flechas interactivas de BilboDev">
+  <div ref="host" class="home-arrows" :class="{ 'is-ready': ready }" role="group" :aria-label="$t('home.arrowsGroup')">
     <template v-if="!ready">
       <svg class="free-arrow-fallback is-orange" viewBox="-1.2 -1.5 2.4 3" aria-hidden="true"><path d="M0-1.32-.98.83 0 .40 .98.83Z" fill="#fbc15d" stroke="#fbc15d" stroke-width=".07" stroke-linejoin="round" /></svg>
       <svg class="free-arrow-fallback is-lavender" viewBox="-1.2 -1.5 2.4 3" aria-hidden="true"><path d="M0-1.32-.98.83 0 .40 .98.83Z" fill="#b26ec0" stroke="#b26ec0" stroke-width=".07" stroke-linejoin="round" /></svg>
     </template>
-    <button class="hero-arrow-hit" type="button" aria-label="Flecha naranja. Arrastra para moverla, pulsa para girarla. Usa las flechas del teclado para moverla." />
-    <button class="hero-arrow-hit" type="button" aria-label="Flecha lavanda. Arrastra para moverla, pulsa para girarla. Usa las flechas del teclado para moverla." />
+    <button class="hero-arrow-hit" type="button" :aria-label="$t('home.orangeArrow')" />
+    <button class="hero-arrow-hit" type="button" :aria-label="$t('home.lavenderArrow')" />
   </div>
 </template>

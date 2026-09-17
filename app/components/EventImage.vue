@@ -9,7 +9,7 @@ watch(() => props.src, () => { failed.value = false })
     v-if="src && !failed"
     class="event-image"
     :src="src"
-    :alt="`Cartel de ${title}`"
+    :alt="$t('agenda.posterAlt', { title })"
     width="960"
     height="540"
     loading="lazy"

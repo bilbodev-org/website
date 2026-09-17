@@ -1,1 +1,1 @@
-<template><aside class="demo-notice"><strong>Datos de ejemplo · versión de diseño</strong><p>El NIF, el registro, el domicilio, el correo y la junta que se muestran son ficticios. Deben sustituirse por información y documentación verificadas antes de la publicación definitiva.</p></aside></template>
+<template><aside class="demo-notice"><strong>{{ $t('demo.title') }}</strong><p>{{ $t('demo.text') }}</p></aside></template>

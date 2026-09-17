@@ -110,3 +110,15 @@
 .next-event>.event-image{width:220px;flex:0 0 220px}
 @media(max-width:1100px){.next-event>.event-image{width:160px;flex-basis:160px}}
 @media(max-width:780px){.archive-event{grid-template-columns:1fr}.archive-event-cover .event-image{max-width:440px}.next-event{flex-wrap:wrap}.next-event>.event-image{width:100%;flex-basis:100%;margin-bottom:8px}.next-event-info{min-width:0;flex:1}}
+
+/* Compact locale control, aligned with the site's outlined controls. */
+.main-nav{gap:30px}
+.main-nav .nav-join{margin-left:2px}
+.language-switcher{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:3px;padding:3px;gap:2px}
+.language-switcher a{display:grid;place-items:center;min-width:32px;min-height:30px;padding:4px 7px;border-radius:2px;color:var(--muted);font-size:.6875rem;font-weight:650;letter-spacing:.08em}
+.language-switcher a:hover{color:var(--text);background:#b26ec012}
+.language-switcher a.active{color:#25212a;background:var(--orange)}
+.language-switcher a[lang="eu"].active{color:#fff;background:var(--lavender)}
+.footer-top p,.hero-stat>span{white-space:pre-line}
+@media(max-width:1100px){.main-nav{gap:18px}.main-nav .nav-join{padding-inline:14px;gap:16px}}
+@media(max-width:780px){.main-nav .language-switcher{align-self:flex-start;margin:10px 13px 3px}.main-nav .language-switcher a{min-width:42px;min-height:34px}}

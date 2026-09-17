@@ -1,26 +1,35 @@
 <script setup lang="ts">
 import { eventDate } from '~/data/events'
+
+const { t, locale } = useI18n()
 const { upcoming: nextEvents } = useEvents()
 const upcoming = computed(() => nextEvents.value.find(event => event.status !== 'cancelled'))
-useSeoMeta({ title: 'BilboDev — Tecnología con raíces, conocimiento sin fronteras', description: 'Somos la Asociación Tecnológica BilboDev. Más de 200 personas compartiendo programación, ideas y encuentros desde Bilbao para todo Euskadi.' })
+const requestPath = useRequestURL().pathname
+const eventLocale = requestPath === '/eu' || requestPath.startsWith('/eu/') ? 'eu' : 'es'
+const formatEventDate = (value: string, options: Intl.DateTimeFormatOptions) => eventDate(value, options, eventLocale)
+
+useSeoMeta({
+  title: () => t('site.title'),
+  description: () => t('home.seoDescription')
+})
 </script>
 
 <template>
   <div class="home-page">
     <section class="hero wrap">
       <ClientOnly><ArrowScene /></ClientOnly>
-      <div class="hero-topline eyebrow"><span><span class="small-cross" aria-hidden="true">+</span> ASOCIACIÓN TECNOLÓGICA · BILBAO</span><span>EST. NOVIEMBRE 2025</span></div>
+      <div class="hero-topline eyebrow"><span><span class="small-cross" aria-hidden="true">+</span> {{ $t('home.topline') }}</span><span>{{ $t('home.established') }}</span></div>
       <div class="hero-main">
-        <div class="hero-copy"><p class="hero-greeting">Kaixo, developer.</p><h1>El siguiente<br>Bilbao se escribe<br><span class="lavender">en comunidad<span class="accent">.</span></span></h1><p class="hero-description">De compartir código a compartir futuro. Somos una asociación sin ánimo de lucro que conecta a quienes crean tecnología en Euskadi.</p><div class="hero-actions"><NuxtLink class="button primary" to="/agenda">Nos vemos en el próximo <span aria-hidden="true">↗</span></NuxtLink><NuxtLink class="text-link" to="/asociacion">Conoce BilboDev <span aria-hidden="true">↗</span></NuxtLink></div></div>
-        <div class="hero-arrow-space" aria-hidden="true"></div>
+        <div class="hero-copy"><p class="hero-greeting">{{ $t('home.greeting') }}</p><h1>{{ $t('home.title1') }}<br>{{ $t('home.title2') }}<br><span class="lavender">{{ $t('home.title3') }}<span class="accent">.</span></span></h1><p class="hero-description">{{ $t('home.description') }}</p><div class="hero-actions"><NuxtLinkLocale class="button primary" to="/agenda">{{ $t('home.nextEvent') }} <span aria-hidden="true">↗</span></NuxtLinkLocale><NuxtLinkLocale class="text-link" to="/asociacion">{{ $t('home.discover') }} <span aria-hidden="true">↗</span></NuxtLinkLocale></div></div>
+        <div class="hero-arrow-space" aria-hidden="true" />
       </div>
-      <div class="hero-bottom"><span>De la cultura de hacer.<br><strong>A la cultura de compartir.</strong></span><div class="hero-stat"><strong>200<span class="accent">+</span></strong><span>personas en Meetup<br>y una misma curiosidad</span></div><a href="#origen" class="scroll-link">SIGUE LA RÍA <span aria-hidden="true">↓</span></a></div>
+      <div class="hero-bottom"><span>{{ $t('home.culture1') }}<br><strong>{{ $t('home.culture2') }}</strong></span><div class="hero-stat"><strong>200<span class="accent">+</span></strong><span>{{ $t('home.people') }}</span></div><a href="#origen" class="scroll-link">{{ $t('home.followRiver') }} <span aria-hidden="true">↓</span></a></div>
     </section>
     <section id="origen" class="origin-section">
-      <div class="river-photo"><img src="/images/bilbao.jpg" alt="El museo Guggenheim junto a la ría de Bilbao y los edificios de la ciudad" width="8415" height="2330" loading="lazy"><div class="photo-caption"><span>BILBAO. SIEMPRE EN CONSTRUCCIÓN.</span><span>INDUSTRIA → CULTURA → TECNOLOGÍA</span></div></div>
-      <div class="origin-content wrap"><div class="eyebrow"><span class="accent">01 /</span> NUESTRAS RAÍCES</div><div><h2>Antes construíamos barcos.<br>Ahora, también conexiones.</h2><p>Bilbao sabe lo que significa transformarse. Nos inspira esa forma de hacer: aprender con las manos, construir junto a otras personas y abrir nuevos caminos.</p><p>Desde noviembre de 2025, trasladamos ese espíritu a la programación multiplataforma. Charlas, experiencias y conversaciones para que el conocimiento tecnológico circule por Euskadi.</p><NuxtLink class="text-link" to="/asociacion">Esta es nuestra historia <span aria-hidden="true">↗</span></NuxtLink></div></div>
+      <div class="river-photo"><img src="/images/bilbao.jpg" :alt="$t('home.imageAlt')" width="8415" height="2330" loading="lazy"><div class="photo-caption"><span>{{ $t('home.caption1') }}</span><span>{{ $t('home.caption2') }}</span></div></div>
+      <div class="origin-content wrap"><div class="eyebrow"><span class="accent">01 /</span> {{ $t('home.rootsLabel') }}</div><div><h2>{{ $t('home.rootsTitle1') }}<br>{{ $t('home.rootsTitle2') }}</h2><p>{{ $t('home.rootsP1') }}</p><p>{{ $t('home.rootsP2') }}</p><NuxtLinkLocale class="text-link" to="/asociacion">{{ $t('home.history') }} <span aria-hidden="true">↗</span></NuxtLinkLocale></div></div>
     </section>
-    <section class="next-section wrap"><div class="section-heading"><div><div class="eyebrow"><span class="accent">02 /</span> DEL CÓDIGO AL ENCUENTRO</div><h2>Nos vemos fuera del editor.</h2></div><NuxtLink class="text-link" to="/agenda">Todos los encuentros <span aria-hidden="true">↗</span></NuxtLink></div><NuxtLink v-if="upcoming" to="/agenda" class="next-event"><EventImage :src="upcoming.imageUrl" :title="upcoming.title" /><div class="event-day"><strong>{{ eventDate(upcoming.date, { day: '2-digit' }) }}</strong><span>{{ eventDate(upcoming.date, { month: 'short', year: 'numeric' }) }}</span></div><div class="next-event-info"><span class="eyebrow accent">PRÓXIMO ENCUENTRO · {{ upcoming.isOnline ? 'ONLINE' : 'BILBAO' }}</span><h3>{{ upcoming.title }}</h3><span class="muted">{{ upcoming.location }} <span class="separator">/</span> {{ eventDate(upcoming.date, { hour: '2-digit', minute: '2-digit' }) }} h</span></div><span class="circle-arrow" aria-hidden="true">↗</span></NuxtLink><div v-else class="empty-events"><h3>La conversación continúa.</h3><p>Consulta en Meetup las nuevas convocatorias y descubre lo que hemos compartido en encuentros anteriores.</p><a href="https://www.meetup.com/es-es/bilbo-dev/" class="text-link">Ver el grupo en Meetup ↗</a></div></section>
-    <section class="join-strip wrap"><span class="eyebrow">ONGI ETORRI · AQUÍ TIENES TU SITIO</span><div><h2>Tu curiosidad.<br>Nuestro punto de encuentro.</h2><NuxtLink class="button primary" to="/participa">Forma parte de BilboDev <span aria-hidden="true">↗</span></NuxtLink></div><p>No importa tu lenguaje, tu plataforma o los años que lleves programando.</p></section>
+    <section class="next-section wrap"><div class="section-heading"><div><div class="eyebrow"><span class="accent">02 /</span> {{ $t('home.codeToMeeting') }}</div><h2>{{ $t('home.outsideEditor') }}</h2></div><NuxtLinkLocale class="text-link" to="/agenda">{{ $t('home.allEvents') }} <span aria-hidden="true">↗</span></NuxtLinkLocale></div><NuxtLinkLocale v-if="upcoming" to="/agenda" class="next-event"><EventImage :src="upcoming.imageUrl" :title="upcoming.title" /><div class="event-day"><strong>{{ formatEventDate(upcoming.date, { day: '2-digit' }) }}</strong><span>{{ formatEventDate(upcoming.date, { month: 'short', year: 'numeric' }) }}</span></div><div class="next-event-info"><span class="eyebrow accent">{{ $t('home.nextMeeting') }} · {{ upcoming.isOnline ? $t('common.online').toLocaleUpperCase(locale) : $t('common.cityLabel') }}</span><h3>{{ upcoming.title }}</h3><span class="muted">{{ upcoming.location }} <span class="separator">/</span> {{ formatEventDate(upcoming.date, { hour: '2-digit', minute: '2-digit' }) }} h</span></div><span class="circle-arrow" aria-hidden="true">↗</span></NuxtLinkLocale><div v-else class="empty-events"><h3>{{ $t('home.emptyTitle') }}</h3><p>{{ $t('home.emptyText') }}</p><a href="https://www.meetup.com/es-es/bilbo-dev/" class="text-link" target="_blank" rel="noopener noreferrer">{{ $t('home.meetupGroup') }}</a></div></section>
+    <section class="join-strip wrap"><span class="eyebrow">{{ $t('home.welcome') }}</span><div><h2>{{ $t('home.curiosity1') }}<br>{{ $t('home.curiosity2') }}</h2><NuxtLinkLocale class="button primary" to="/participa">{{ $t('home.joinBilboDev') }} <span aria-hidden="true">↗</span></NuxtLinkLocale></div><p>{{ $t('home.noMatter') }}</p></section>
   </div>
 </template>
