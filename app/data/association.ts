@@ -3,7 +3,7 @@ export const association = {
   name: 'Asociación Tecnológica BilboDev',
   demo: true,
   nif: 'En tramitación',
-  registry: 'AS/B/00000/2025',
+  registry: 'AS/B/27080/2026',
   address: 'Calle Santa Ana 2, Piso 4º A · 48450 Etxebarri',
   email: 'bilbofrontend@gmail.com',
   board: [
