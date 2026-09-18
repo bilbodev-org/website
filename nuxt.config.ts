@@ -9,7 +9,8 @@ export default defineNuxtConfig({
   app: { head: {
     title: 'BilboDev — Tecnología con raíces, conocimiento sin fronteras',
     meta: [{ name: 'theme-color', content: '#171724' }],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [{ src: '/_vercel/insights/script.js', defer: true }]
   } },
   i18n: {
     defaultLocale: 'es',
