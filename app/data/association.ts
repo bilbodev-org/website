@@ -5,7 +5,7 @@ export const association = {
   nif: 'En tramitación',
   registry: 'AS/B/27080/2026',
   address: 'Calle Santa Ana 2, Piso 4º A · 48450 Etxebarri',
-  email: 'bilbofrontend@gmail.com',
+  email: 'hello.bilbodev@gmail.com',
   board: [
     { role: 'Presidencia', name: 'Aarón Barcos' },
     { role: 'Secretaría', name: 'Rebeca Fernandes' },
