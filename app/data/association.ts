@@ -1,4 +1,3 @@
-// Replace the complete example dataset with verified association records before public launch.
 export const association = {
   name: 'Asociación Tecnológica BilboDev',
   demo: true,
