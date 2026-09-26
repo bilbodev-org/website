@@ -25,6 +25,7 @@ useSeoMeta({
         <div class="construction-actions">
           <a class="construction-button" href="https://www.meetup.com/es-es/bilbo-dev/" target="_blank" rel="noopener noreferrer">{{ $t('construction.meetup') }} <span aria-hidden="true">↗</span></a>
           <a class="construction-text-link" href="https://www.linkedin.com/company/bilbo-dev/" target="_blank" rel="noopener noreferrer">{{ $t('construction.linkedin') }} <span aria-hidden="true">↗</span></a>
+          <a class="construction-text-link" href="https://www.instagram.com/bilbo_dev/" target="_blank" rel="noopener noreferrer">{{ $t('construction.instagram') }} <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 

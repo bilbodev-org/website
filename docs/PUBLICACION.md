@@ -1,12 +1,12 @@
-# BilboDev: revisión antes de la publicación definitiva
+# BilboDev: revisión institucional y publicación
 
-La web implementa un sitio informativo Nuxt con identidad, misión, actividades, participación, contacto, transparencia, aviso legal y privacidad. Esta versión contiene datos institucionales de ejemplo expresamente solicitados para el diseño. No está lista para presentarse como documentación oficial.
+La web implementa un sitio informativo Nuxt con identidad, misión, actividades, participación, contacto, transparencia, aviso legal y privacidad. La información registral se contrastó el 26 de septiembre de 2026 con la resolución de inscripción aportada por la asociación.
 
-## Sustituir datos de ejemplo
+## Datos institucionales verificados y pendientes
 
-Editar `app/data/association.ts`: NIF, inscripción registral, domicilio, correo y junta. Los valores actuales son ficticios; el dominio `.example` no es un contacto operativo. Cambiar `demo` a `false` solo tras validar toda la información y actualizar las menciones de ejemplo en transparencia, aviso legal y privacidad. Incorporar estatutos, acta y cuentas auténticas cuando estén aprobados y disponibles. No se han creado documentos ni importes contables falsos.
+La resolución identifica a la Asociación Tecnológica BilboDev con el número AS/B/27080/2026 en el Registro General de Asociaciones del País Vasco. Indica que la asociación se constituyó el 15 de abril de 2026 en Etxebarri (Bizkaia) y que su actividad se desarrolla principalmente en Bizkaia. La firma electrónica de la resolución es del 24 de agosto de 2026. El documento solo indica el municipio del domicilio social; no acredita la dirección postal completa que figuraba antes en la web.
 
-El canal funcional de contacto es el grupo público de Meetup. Añadir correo institucional verificado y revisar responsable y tratamientos de privacidad antes de la apertura pública. Las inscripciones en Meetup no equivalen a altas de socios.
+La asociación confirmó que el NIF sigue en tramitación, que el correo público es `hello@bilbodev.com` y que la junta está integrada por Aarón Barcos en Presidencia y Rebeca Fernandes en Secretaría y Tesorería. Quedan por confirmar la dirección postal completa, si se desea publicarla, y la disponibilidad de estatutos, memoria y cuentas para su difusión. No se han creado documentos ni importes contables ficticios. Las inscripciones en Meetup no equivalen a altas de socios.
 
 ## Google para Organizaciones sin Ánimo de Lucro
 
@@ -15,9 +15,9 @@ Fuentes oficiales consultadas el 10 de septiembre de 2026:
 - Política de sitios web para Ad Grants: https://support.google.com/grants/answer/1657899?hl=en
 - Información general: https://www.google.com/nonprofits/
 
-La participación general requiere que la entidad cumpla los requisitos de su país y sea verificada por Goodstack. La política web de Ad Grants es un requisito adicional de ese producto: contenido propio sustancial, misión y actividades claras, identidad, navegación funcional, acceso móvil, HTTPS y dominio controlado por la asociación. Una web no garantiza la aprobación. La vista previa privada no sustituye el dominio público definitivo.
+La participación general requiere que la entidad cumpla los requisitos de su país y sea verificada por Goodstack. La política web de Ad Grants es un requisito adicional de ese producto: contenido propio sustancial, misión y actividades claras, identidad, navegación funcional, acceso móvil, HTTPS y dominio controlado por la asociación. Una web no garantiza la aprobación.
 
-Antes de solicitar el programa: verificar elegibilidad registral, aportar datos reales, revisar textos legales según los tratamientos reales, publicar en un dominio bajo control de la asociación con HTTPS y acceso público, comprobar el rendimiento móvil del sitio definitivo y mantener la actividad actualizada. No hay analítica ni donaciones en esta implementación.
+Antes de reenviar la solicitud: desplegar estos cambios en `www.bilbodev.com`, revisar los textos legales según los tratamientos reales, comprobar las páginas públicas y mantener la actividad actualizada. La medición de PageSpeed Insights realizada el 25 de septiembre de 2026 dio 95/100 en rendimiento móvil para la portada. No hay donaciones implementadas.
 
 ## Contenido y mantenimiento
 
