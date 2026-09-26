@@ -1,10 +1,9 @@
 export const association = {
   name: 'Asociación Tecnológica BilboDev',
-  demo: true,
-  nif: 'En tramitación',
+  nif: null,
   registry: 'AS/B/27080/2026',
-  address: 'Calle Santa Ana 2, Piso 4º A · 48450 Etxebarri',
-  email: 'hello.bilbodev@gmail.com',
+  address: 'Etxebarri (Bizkaia)',
+  email: 'hello@bilbodev.com',
   board: [
     { role: 'Presidencia', name: 'Aarón Barcos' },
     { role: 'Secretaría', name: 'Rebeca Fernandes' },

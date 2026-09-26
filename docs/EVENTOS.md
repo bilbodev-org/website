@@ -28,6 +28,6 @@ Este workflow actualiza el repositorio; no publica en Sites ni configura un prov
 
 Una consulta de más de siete días muestra un aviso para confirmar la información en Meetup. Regenerar periódicamente el HTML estático mantiene también actualizado el contenido inicial para usuarios sin JavaScript.
 
-El modo de construcción existente sigue activo por defecto. Para revisar la agenda: `NUXT_PUBLIC_SITE_UNDER_CONSTRUCTION=false npm run dev` y abrir `/agenda`. Para generar la web completa usar la misma variable con `npm run generate`; no desactivar la página de construcción en producción hasta validar el resto del contenido institucional.
+La web completa se muestra por defecto. Para revisar la agenda, ejecutar `npm run dev` y abrir `/agenda`; para generar el sitio estático, usar `npm run generate`. El modo de construcción es opcional y no debe estar activo durante la revisión de Ad Grants.
 
-Verificaciones: `npm test`, `npm run typecheck`, `npm run build` y `NUXT_PUBLIC_SITE_UNDER_CONSTRUCTION=false npm run generate`. Los tests del scraper no acceden a la red y cubren extracción, datos privados excluidos, paginación solapada, fallos, deduplicación, conservación del historial y fechas.
+Verificaciones: `npm test`, `npm run typecheck`, `npm run build` y `npm run generate`. Los tests del scraper no acceden a la red y cubren extracción, datos privados excluidos, paginación solapada, fallos, deduplicación, conservación del historial y fechas.
