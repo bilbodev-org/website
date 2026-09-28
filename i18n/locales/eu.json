@@ -80,7 +80,20 @@
     "noMatter": "Ez dio axola zer programazio-hizkuntza edo plataforma darabilzun, ezta zenbat urte daramatzazun programatzen ere.",
     "arrowsGroup": "BilboDev-en gezi interaktiboak",
     "orangeArrow": "Gezi laranja. Arrastatu mugitzeko, eta sakatu biratzeko. Erabili teklatuko geziak mugitzeko.",
-    "lavenderArrow": "Gezi izpiliku-kolorea. Arrastatu mugitzeko, eta sakatu biratzeko. Erabili teklatuko geziak mugitzeko."
+    "lavenderArrow": "Gezi izpiliku-kolorea. Arrastatu mugitzeko, eta sakatu biratzeko. Erabili teklatuko geziak mugitzeko.",
+    "missionLabel": "GURE XEDEA MARTXAN",
+    "missionTitle": "Teknologia elkarrekin ikasi.",
+    "missionIntro": "BilboDev irabazi-asmorik gabeko elkartea da, eta egoitza soziala Etxebarrin du. Bilbon topaguneak sortzen ditugu programazioari buruzko ezagutza partekatzeko eta Euskadiko teknologia-komunitatea konektatzeko.",
+    "activity1Title": "Hitzaldiak eta topaketak",
+    "activity1Text": "Tresnak, web-garapena, diseinua eta plataforma arteko programazioa aztertzeko elkartzen gara. Deialdi bakoitzak gaia, eguna eta lekua jasotzen ditu; artxiboan egindako jarduerak ikus daitezke.",
+    "activity1Link": "Ikusi agenda",
+    "activity2Title": "Komunitate irekia",
+    "activity2Text": "Entzutera, galdetzera eta beste pertsona batzuk ezagutzera etor zaitezke, esperientzia profesionala izan zein ez. Topaketa bakoitzeko plazak Meetup-eko deialdian kudeatzen dira.",
+    "activity2Link": "Nola parte hartu",
+    "activity3Title": "Ezagutza partekatua",
+    "activity3Text": "Esperientzia teknikoak beste pertsona batzuei hurbiltzen dizkieten hitzaldiak eta lankidetzak proposatzera gonbidatzen dugu. Ideiaren bat baduzu edo espazio bat eskain badezakezu, idatzi iezaguzu.",
+    "activity3Link": "Lankidetza proposatu",
+    "pastEvents": "Ikusi topaketen artxiboa"
   },
   "association": {
     "seoTitle": "Elkartea — BilboDev",
@@ -148,7 +161,8 @@
     "noMatches": "Ez dago bilaketarekin bat datorren topaketarik.",
     "noPast": "Oraindik ez dago aurreko topaketarik artxiboan.",
     "clearFilters": "Garbitu iragazkiak",
-    "posterAlt": "{title} topaketaren kartela"
+    "posterAlt": "{title} topaketaren kartela",
+    "participate": "Nola parte hartu"
   },
   "participate": {
     "seoTitle": "Egin bat — BilboDev",
