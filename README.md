@@ -1,6 +1,6 @@
 # BilboDev
 
-Web de la Asociación Tecnológica BilboDev, realizada con Nuxt 4, Vue 3 y Three.js.
+Web de la Asociación Tecnológica BilboDev, realizada con Nuxt 4 y Vue 3.
 
 La web institucional está activa por defecto. Existe una vista opcional de **Página en construcción** para mantenimiento temporal.
 
@@ -31,7 +31,7 @@ npm run generate
 - `scripts/sync-meetup.mjs`: sincronización de las páginas públicas, sin API ni Meetup Pro.
 - `docs/EVENTOS.md`: funcionamiento, automatización y mantenimiento de la agenda.
 - `app/data/association.ts`: denominación, registro, municipio del domicilio social, contacto y junta. El NIF sigue en tramitación.
-- `app/components/ArrowScene.client.vue`: flechas Three.js, arrastre, controles por teclado, pausa, reinicio y movimiento reducido.
+- La portada usa flechas SVG decorativas y una fotografía WebP para reducir el peso de descarga.
 - `app/assets/css/main.css`: diseño adaptable y tipografías alojadas localmente.
 - `docs/PUBLICACION.md`: fuentes, créditos y cambios necesarios antes de solicitar Google para Organizaciones sin Ánimo de Lucro.
 

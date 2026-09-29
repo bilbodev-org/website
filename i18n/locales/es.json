@@ -80,7 +80,20 @@
     "noMatter": "No importa tu lenguaje, tu plataforma o los años que lleves programando.",
     "arrowsGroup": "Flechas interactivas de BilboDev",
     "orangeArrow": "Flecha naranja. Arrastra para moverla, pulsa para girarla. Usa las flechas del teclado para moverla.",
-    "lavenderArrow": "Flecha lavanda. Arrastra para moverla, pulsa para girarla. Usa las flechas del teclado para moverla."
+    "lavenderArrow": "Flecha lavanda. Arrastra para moverla, pulsa para girarla. Usa las flechas del teclado para moverla.",
+    "missionLabel": "NUESTRA MISIÓN EN ACCIÓN",
+    "missionTitle": "Aprender tecnología, juntos.",
+    "missionIntro": "BilboDev es una asociación sin ánimo de lucro con sede social en Etxebarri. Creamos espacios de encuentro en Bilbao para compartir conocimientos de programación y conectar a la comunidad tecnológica de Euskadi.",
+    "activity1Title": "Charlas y encuentros",
+    "activity1Text": "Nos reunimos para explorar herramientas, desarrollo web, diseño y programación entre plataformas. Cada convocatoria incluye tema, fecha y lugar; el archivo permite conocer las actividades ya realizadas.",
+    "activity1Link": "Explorar la agenda",
+    "activity2Title": "Una comunidad abierta",
+    "activity2Text": "Puedes venir a escuchar, hacer preguntas y conocer a otras personas, tengas o no experiencia profesional. Las plazas de cada encuentro se gestionan en su convocatoria de Meetup.",
+    "activity2Link": "Cómo participar",
+    "activity3Title": "Conocimiento compartido",
+    "activity3Text": "Invitamos a proponer charlas y colaboraciones que acerquen experiencias técnicas a otras personas. Si tienes una idea o puedes ofrecer un espacio, escríbenos.",
+    "activity3Link": "Proponer una colaboración",
+    "pastEvents": "Ver el archivo de encuentros"
   },
   "association": {
     "seoTitle": "La asociación — BilboDev",
@@ -148,7 +161,8 @@
     "noMatches": "No hay encuentros que coincidan con esta búsqueda.",
     "noPast": "Todavía no hay encuentros pasados en el archivo.",
     "clearFilters": "Limpiar filtros",
-    "posterAlt": "Cartel de {title}"
+    "posterAlt": "Cartel de {title}",
+    "participate": "Cómo participar"
   },
   "participate": {
     "seoTitle": "Forma parte — BilboDev",
