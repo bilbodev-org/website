@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "source": "https://www.meetup.com/es-es/bilbo-dev/",
-  "syncedAt": "2026-10-26T13:19:55.959Z",
+  "syncedAt": "2026-10-27T12:27:57.028Z",
   "events": [
     {
       "id": "317060771",
-      "title": "🎟️ De tickets a decisiones: Del dato a la acción",
+      "title": "🎟️ De tickets a decisiones: Inteligencia de negocio a través de los datos",
       "description": "¿Qué podemos descubrir analizando los tickets de venta de un negocio? ¿Y cómo podemos convertir esos datos en decisiones que realmente aporten valor?\n\nEn esta nueva charla de **BilboDev** exploraremos un caso práctico basado en datos de ventas, descubriendo cómo transformar información cotidiana en conocimiento útil para un negocio.\n\nA través de un ejemplo cercano a la realidad, veremos cómo extraer y analizar datos, identificar patrones, definir indicadores clave (KPIs) y descubrir oportunidades de mejora.\nTambién conoceremos cómo utilizar herramientas de análisis y programación para obtener conclusiones y plantear acciones concretas.\n\n💡 **Una charla práctica, dinámica y participativa**, pensada tanto para perfiles técnicos como para personas interesadas en el análisis de datos, el diseño, el marketing o la estrategia de negocio. ¡No necesitas conocimientos previos!\n\n### 🗓️ Agenda\n\n* **19:00 – 19:30 \\|** Recepción de asistentes y bienvenida.\n* **19:30 – 20:00 \\|** Charla: De tickets a decisiones.\n* **20:00 – 20:30 \\|** Networking: comparte ideas, conoce a otros profesionales y conecta con la comunidad.\n\n🚀 **¡Ven a aprender, compartir y conectar con la comunidad tech de Bilbao!**",
       "date": "2026-10-29T19:00:00+01:00",
       "endDate": "2026-10-29T20:30:00+01:00",
