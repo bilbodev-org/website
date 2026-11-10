@@ -6,7 +6,8 @@ watch(() => route.path, () => { menuOpen.value = false })
 const navigation = computed(() => [
   { to: '/asociacion', text: t('common.association') },
   { to: '/agenda', text: t('common.events') },
-  { to: '/transparencia', text: t('common.transparency') }
+  { to: '/transparencia', text: t('common.transparency') },
+  { to: '/contacto', text: t('common.contact') }
 ])
 useHead(() => ({
   htmlAttrs: {
@@ -37,7 +38,7 @@ if (!siteUnderConstruction) {
     <footer class="site-footer wrap">
       <div class="footer-top">
         <div><NuxtLinkLocale to="/" :aria-label="$t('common.home')"><BrandLogo /></NuxtLinkLocale><p>{{ $t('footer.tagline') }}</p></div>
-        <div class="footer-links"><span class="eyebrow">{{ $t('footer.associationHeading') }}</span><NuxtLinkLocale to="/asociacion">{{ $t('footer.about') }}</NuxtLinkLocale><NuxtLinkLocale to="/transparencia">{{ $t('common.transparency') }}</NuxtLinkLocale><NuxtLinkLocale to="/contacto">{{ $t('common.contact') }}</NuxtLinkLocale></div>
+        <div class="footer-links"><span class="eyebrow">{{ $t('footer.associationHeading') }}</span><NuxtLinkLocale to="/asociacion">{{ $t('footer.about') }}</NuxtLinkLocale><NuxtLinkLocale to="/participa">{{ $t('common.join') }}</NuxtLinkLocale><NuxtLinkLocale to="/transparencia">{{ $t('common.transparency') }}</NuxtLinkLocale><NuxtLinkLocale to="/contacto">{{ $t('common.contact') }}</NuxtLinkLocale></div>
         <div class="footer-links"><span class="eyebrow">{{ $t('footer.findUs') }}</span><a href="https://www.meetup.com/es-es/bilbo-dev/" target="_blank" rel="noopener noreferrer">{{ $t('common.meetup') }}</a><a href="https://www.linkedin.com/company/bilbo-dev/" target="_blank" rel="noopener noreferrer">{{ $t('common.linkedin') }}</a><a href="https://www.instagram.com/bilbo_dev/" target="_blank" rel="noopener noreferrer">{{ $t('common.instagram') }}</a><NuxtLinkLocale to="/agenda">{{ $t('footer.ourEvents') }}</NuxtLinkLocale></div>
         <div class="footer-location"><span class="location-cross" aria-hidden="true">✳</span><span>{{ $t('footer.location') }}<br><span class="muted">43°15′ N · 2°56′ O</span></span></div>
       </div>

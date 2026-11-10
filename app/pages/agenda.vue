@@ -61,7 +61,7 @@ const clearFilters = () => {
           <p class="small muted">{{ $t('agenda.capacityNote') }}</p>
         </div>
       </article>
-      <div v-if="!upcoming.length" class="empty-events"><h3>{{ $t('agenda.emptyUpcomingTitle') }}</h3><p>{{ $t('agenda.emptyUpcomingText') }}</p><a :href="meetupUrl" class="text-link" target="_blank" rel="noopener noreferrer">{{ $t('agenda.meetupNews') }}</a></div>
+      <div v-if="!upcoming.length" class="empty-events"><h3>{{ $t('agenda.emptyUpcomingTitle') }}</h3><p>{{ $t('agenda.emptyUpcomingText') }}</p><NuxtLinkLocale class="text-link" to="/participa">{{ $t('agenda.participate') }} ↗</NuxtLinkLocale><a :href="meetupUrl" class="text-link" target="_blank" rel="noopener noreferrer">{{ $t('agenda.meetupNews') }}</a></div>
     </section>
 
     <section id="pasados" class="wrap archive-section" aria-labelledby="past-title">
